@@ -1,0 +1,29 @@
+<header *ngIf="hasNavigation" class="header" [class.header--menuopen]="isMenuOpen">
+    <div class="header-container">
+        <button class="menu-toggle" [attr.aria-expanded]="isMenuOpen" title="Menu" (click)="onMenuToggle()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="logo">
+            <a [routerLink]="homePageUrl">
+                <img class="logo-img" src="assets/img/wknd-logo-dk.png" alt="Hotel Viracopos" />
+            </a>
+        </div>
+        <table class="menu">
+            <tr>
+                <td> Quartos </td>
+                <td> Sobre Nós </td>
+                <td> Contato </td>
+            </tr>
+        </table>
+        <button *ngIf="!isHome" class="backbutton" aria-label="Return to previous page" (click)="onBackClick()">
+            <img class="backbutton-icon" src="assets/img/icon-back.svg" alt="Return" />
+        </button>
+    </div>
+    <div class="header-navigation">
+        <div class="navigation">
+            <app-navigation [items]="items"></app-navigation>
+        </div>
+    </div>
+</header>
